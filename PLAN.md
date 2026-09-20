@@ -123,6 +123,8 @@ LOF(auto) plays no role in Tables 3–4. Guessing "Anomaly = IF's 5,000" misses 
 
 The original repo pinned nothing — this is the reference environment. Earlier bounds (`numpy<2.0.0`, `scikit-learn<1.6.0`) **excluded** these versions; do not reinstate them.
 
+⚠️ **Colab does not match it.** The NB01 run resolved python 3.13.15, numpy 2.1.3, pandas 2.2.3. All NB01 statistics still came out byte-identical, but descriptive statistics are insensitive to these differences while IF and LOF are not — and Colab's `scikit-learn` version is still unobserved because NB01 does not import it. NB02 must capture it. See `REPRODUCIBILITY.md` §2.1.
+
 ---
 
 ## 4. Notebook architecture
@@ -148,10 +150,12 @@ ZONE 3  HANDOVER          Cell N-1 [code] export figures (300 dpi) + tables
 |---|---|
 | Labels | sklearn native: `-1` anomaly, `+1` normal |
 | Seeds | `SEED = 42`, `np.random.seed(SEED)`, `random_state=42` |
-| Figures | `dpi=300`, `bbox_inches='tight'`, save `.png` **and** `.pdf` |
+| Figures | `dpi=300`, `bbox_inches='tight'`, **PNG only** |
 | Naming | `outputs/figures/nb{X}_*.png`, `outputs/tables/nb{X}_*.csv` |
 | Paths | never hardcode `/content/...`; use `PROCESSED / 'file.parquet'` |
 | Assertions | any number appearing in the manuscript gets a hard assert that **halts** |
+
+PNG-only is deliberate. The pipeline standard mandates a vector `.pdf` alongside each PNG for camera-ready use, which is correct for a LaTeX manuscript. This manuscript is a Word document — the editor's comments appear in the submitted PDF as Word comment balloons (`Commented [DM1]`) — and Word cannot cleanly embed vector PDF, so the PNG is what actually gets pasted. The PDFs were dead weight and are not produced.
 
 **Handshake schema** — `outputs/notebook_exports/summary_NB{X}.json`:
 

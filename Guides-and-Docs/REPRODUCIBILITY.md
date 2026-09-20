@@ -17,14 +17,20 @@ Pin exact versions in `requirements.txt`. Record them here as well for quick ref
 
 | Package | Version (original, if known) | Version (parity-verified 2026-09-21) |
 |---|---|---|
-| python | _unpinned in original_ | 3.9 (local verification host) |
-| scikit-learn | _unpinned in original_ | **1.6.1** |
-| pandas | _unpinned in original_ | **2.3.3** |
-| numpy | _unpinned in original_ | **2.0.2** |
+| python | _unpinned in original_ | 3.9.13 local / **3.13.15 Colab** |
+| scikit-learn | _unpinned in original_ | 1.6.1 local / **Colab UNKNOWN — capture in NB02** |
+| pandas | _unpinned in original_ | 2.3.3 local / **2.2.3 Colab** |
+| numpy | _unpinned in original_ | 2.0.2 local / **2.1.3 Colab** |
 | scipy | _unpinned in original_ | **1.13.1** (Tables 3–4 verified) |
-| matplotlib | _unpinned in original_ | 3.9.4 (local; Colab value pending NB01) |
-| seaborn | _unpinned in original_ | 0.13.2 (local; Colab value pending NB01) |
+| matplotlib | _unpinned in original_ | 3.9.4 local / **3.10.0 Colab** |
+| seaborn | _unpinned in original_ | **0.13.2** (both) |
 | matplotlib-venn | _unpinned in original_ | _pending NB04_ |
+
+### 2.1 NB01 Colab run, 2026-09-20
+
+Colab resolved a **different environment** from the one parity was demonstrated in (python 3.13.15, numpy 2.1.3, pandas 2.2.3). Every NB01 statistic nevertheless came out byte-identical to the local run — medians, means, skewness, and `max_abs_offdiag_correlation` = 0.9987039748961641 — and the raw-file SHA-256 matched.
+
+⚠️ That agreement is weaker evidence than it looks: descriptive statistics are insensitive to these version differences, whereas **Isolation Forest and LOF are not**. NB01 does not import scikit-learn, so the version that actually governs the parity anchors is still unobserved. **NB02 Cell 02 must record `scikit-learn` and `scipy` before fitting anything** — if LOF(auto) misses 2,565 on Colab, the sklearn version is the first thing to check.
 
 ⚠️ **The original repository pinned nothing** — the notebook installs no versions and states none. Full parity for the submitted numbers therefore rests on the combination above, which is the first environment in which they have been demonstrably reproduced.
 
