@@ -4,7 +4,7 @@
 [![Status: Major Revision](https://img.shields.io/badge/Status-Accepted%20with%20Major%20Corrections-orange)](https://doi.org/10.30598/barekengxxxxxxxxxxxxx)
 [![Scopus Indexed](https://img.shields.io/badge/Indexing-Scopus-brightgreen)](https://www.scopus.com/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Reproducibility Standard](https://img.shields.io/badge/Pipeline-Deterministic%20Handshake%20v2.0-purple)](Notebook-Guide/notebook-standards.md)
+[![Reproducibility Standard](https://img.shields.io/badge/Pipeline-Deterministic%20Handshake%20v2.0-purple)](../Notebook-Guide/notebook-standards.md)
 [![Original Snapshot](https://img.shields.io/badge/Provenance-v1.0--submitted-lightgrey)](https://github.com/nyan-dev/Anomaly-Detection-IF-LOF-OCSVM)
 
 ---
@@ -22,7 +22,7 @@ This repository hosts the **official ground-up rebuild and revision pipeline** f
 
 The study investigates the detection of anomalous Medicare billing behavior across 100,000 healthcare provider service records. It evaluates how tree-based partitioning (**Isolation Forest**) and density-based deviation (**Local Outlier Factor**) identify distinct, complementary subsets of outliers in unlabelled claims data ($J < 0.06$).
 
-To fulfill all requirements of the editorial decision and peer reviewers while preserving absolute empirical fidelity to the accepted findings, the codebase is rebuilt in accordance with the [Research Notebook Pipeline Standard](Notebook-Guide/notebook-standards.md).
+To fulfill all requirements of the editorial decision and peer reviewers while preserving absolute empirical fidelity to the accepted findings, the codebase is rebuilt in accordance with the [Research Notebook Pipeline Standard](../Notebook-Guide/notebook-standards.md).
 
 ---
 
@@ -60,20 +60,20 @@ Prior to releasing new revision modules, the rebuilt pipeline must verify 100% e
 
 | Manuscript Target | Metric / Description | Accepted Reported Value | Parity Status |
 |---|---|---|:---:|
-| **Table 1** | IF Anomaly Count ($\alpha = 0.05$) | **5,000 (5.00%)** | Preserved |
-| **Table 1** | LOF Anomaly Count ($\text{auto}$) | **2,565 (2.56%)** | Preserved |
-| **Table 1** | LOF Anomaly Count ($\alpha = 0.05$) | **5,000 (5.00%)** | Preserved |
-| **Table 2** | IF $\cap$ LOF(auto) Overlap Count | **341 records** ($J = 0.047$) | Preserved |
-| **Table 2** | IF $\cap$ LOF(0.05) Overlap Count | **545 records** ($J = 0.058$) | Preserved |
-| **Table 2** | LOF(auto) $\cap$ LOF(0.05) Overlap | **2,565 records** ($J = 0.513$) | Preserved |
-| **Table 3** | Mann-Whitney $U$ (`Number of Services`, Anomaly vs Normal) | $U = 5.10 \times 10^8, p < 0.001$ | Preserved |
-| **Table 3** | Mann-Whitney $U$ (`Avg. Medicare Payment`, Anomaly vs Normal) | $U = 5.36 \times 10^8, p < 0.001$ | Preserved |
-| **Table 3** | Mann-Whitney $U$ (`Number of Services`, IF-only vs LOF-only) | $U = 1.21 \times 10^7, p < 0.001$ | Preserved |
-| **Table 3** | Mann-Whitney $U$ (`Avg. Medicare Payment`, IF-only vs LOF-only) | $U = 1.46 \times 10^7, p < 0.001$ | Preserved |
-| **Table 4** | Chi-Square $\chi^2$ (`Provider Type`, Anomaly vs Normal) | $\chi^2 = 7,496.33, p < 0.001$ | Preserved |
-| **Table 4** | Chi-Square $\chi^2$ (`Entity Type`, Anomaly vs Normal) | $\chi^2 = 1,855.13, p < 0.001$ | Preserved |
-| **Table 4** | Chi-Square $\chi^2$ (`Provider Type`, IF-only vs LOF-only) | $\chi^2 = 2,408.72, p < 0.001$ | Preserved |
-| **Table 4** | Chi-Square $\chi^2$ (`Entity Type`, IF-only vs LOF-only) | $\chi^2 = 157.39, p < 0.001$ | Preserved |
+| **Table 1** | IF Anomaly Count ($\alpha = 0.05$) | **5,000 (5.00%)** | ✅ Verified |
+| **Table 1** | LOF Anomaly Count ($\text{auto}$) | **2,565 (2.56%)** | ✅ Verified |
+| **Table 1** | LOF Anomaly Count ($\alpha = 0.05$) | **5,000 (5.00%)** | ✅ Verified |
+| **Table 2** | IF $\cap$ LOF(auto) Overlap Count | **341 records** ($J = 0.047$) | ✅ Verified |
+| **Table 2** | IF $\cap$ LOF(0.05) Overlap Count | **545 records** ($J = 0.058$) | ✅ Verified |
+| **Table 2** | LOF(auto) $\cap$ LOF(0.05) Overlap | **2,565 records** ($J = 0.513$) | ✅ Verified |
+| **Table 3** | Mann-Whitney $U$ (`Number of Services`, Anomaly vs Normal) | $U = 5.10 \times 10^8, p < 0.001$ | ✅ Verified |
+| **Table 3** | Mann-Whitney $U$ (`Avg. Medicare Payment`, Anomaly vs Normal) | $U = 5.36 \times 10^8, p < 0.001$ | ✅ Verified |
+| **Table 3** | Mann-Whitney $U$ (`Number of Services`, IF-only vs LOF-only) | $U = 1.21 \times 10^7, p < 0.001$ | ✅ Verified |
+| **Table 3** | Mann-Whitney $U$ (`Avg. Medicare Payment`, IF-only vs LOF-only) | $U = 1.46 \times 10^7, p < 0.001$ | ✅ Verified |
+| **Table 4** | Chi-Square $\chi^2$ (`Provider Type`, Anomaly vs Normal) | $\chi^2 = 7,496.33, p < 0.001$ | ✅ Verified |
+| **Table 4** | Chi-Square $\chi^2$ (`Entity Type`, Anomaly vs Normal) | $\chi^2 = 1,855.13, p < 0.001$ | ✅ Verified |
+| **Table 4** | Chi-Square $\chi^2$ (`Provider Type`, IF-only vs LOF-only) | $\chi^2 = 2,408.72, p < 0.001$ | ✅ Verified |
+| **Table 4** | Chi-Square $\chi^2$ (`Entity Type`, IF-only vs LOF-only) | $\chi^2 = 157.39, p < 0.001$ | ✅ Verified |
 
 ---
 
@@ -97,7 +97,7 @@ flowchart TD
 
     subgraph Implementation[Pipeline Rebuild & Manuscript Deliverables]
         NB3["03_parameter_sensitivity.ipynb<br/>(Grid sweep & Jaccard stability)"]
-        NB4["04_validation_synthetic_and_expert.ipynb<br/>(Synthetic injection + 545-record audit)"]
+        NB4["05_validation_synthetic.ipynb<br/>(Synthetic injection + 545-record audit)"]
         NB6["06_statistical_tests_effect_sizes.ipynb<br/>(Rank-biserial & Cramér's V)"]
         TEXT["Revised Manuscript & Response Letter<br/>(RESPONSE_TO_REVIEWERS.md)"]
     end
@@ -114,7 +114,7 @@ flowchart TD
 
 | ID | Origin | Core Comment | Implemented Action | Target Deliverable |
 |:---:|:---:|---|---|---|
-| **C1** | Editor | Strengthen model validation beyond unlabelled heuristics | Quantitative synthetic injection benchmark + qualitative expert face-validity review of the 545 consensus anomalies. | `04_validation_synthetic_and_expert.ipynb`<br/>`outputs/tables/table_synthetic_validation.csv`<br/>`outputs/tables/table_expert_review.csv` |
+| **C1** | Editor | Strengthen model validation beyond unlabelled heuristics | Quantitative synthetic injection benchmark (precision/recall/F1 against a known injected ground truth) + descriptive case profiles of the 545 consensus anomalies. Expert validation is not performed; it remains future work in the Conclusion. | `05_validation_synthetic.ipynb`<br/>`outputs/tables/table_synthetic_validation.csv`<br/>`outputs/tables/table_case_profiles.csv` |
 | **C2** | Editor | Provide parameter justification & stability testing | Systematic multi-parameter sensitivity sweep over contamination ($0.01$–$0.10$), $n_\text{estimators}$ ($50$–$300$), and $k$ ($10$–$50$); stability quantified via pairwise Jaccard similarity. | `03_parameter_sensitivity.ipynb`<br/>`outputs/tables/table_sensitivity_if.csv`<br/>`outputs/tables/table_sensitivity_lof.csv`<br/>`outputs/figures/fig_sensitivity_heatmap.png` |
 | **C3** | Editor | Report magnitude/effect size alongside $p$-values | Augmented Table 3 with Rank-Biserial Correlation ($r_{rb}$) for Mann-Whitney $U$; augmented Table 4 with Cramér's $V$ for $\chi^2$ contingency tables. | `06_statistical_tests_effect_sizes.ipynb`<br/>`outputs/tables/table3_mannwhitney_effectsize.csv`<br/>`outputs/tables/table4_chisquare_effectsize.csv` |
 | **C4** | Reviewer 2 | Abstract missing explicit limitations and originality/value | Abstract rewritten to articulate unsupervised ground-truth bounds and highlight the multi-model complementarity framework. | Manuscript Abstract & `RESPONSE_TO_REVIEWERS.md` |
@@ -125,14 +125,14 @@ flowchart TD
 
 ## Rebuilt Architecture & Pipeline Standard
 
-The project adheres to the **Tier 3 (Deep Empirical Research / Journal Publication)** specification documented in [`Notebook-Guide/notebook-standards.md`](Notebook-Guide/notebook-standards.md).
+The project adheres to the **Tier 3 (Deep Empirical Research / Journal Publication)** specification documented in [`Notebook-Guide/notebook-standards.md`](../Notebook-Guide/notebook-standards.md).
 
 ### Directory Tree
 
 ```text
 Revision_Repo/
 ├── data/
-│   ├── raw/                  # Read-only Kaggle source (healthcare_providers_raw.csv)
+│   ├── raw/                  # Read-only Kaggle source (healthcare_providers.csv)
 │   ├── interim/              # Cleaned types & formatted numerical matrices
 │   └── processed/            # features_raw.parquet & anomaly_labels.parquet
 ├── outputs/
@@ -145,8 +145,8 @@ Revision_Repo/
 │   ├── 01_data_and_eda.ipynb
 │   ├── 02_baseline_models.ipynb
 │   ├── 03_parameter_sensitivity.ipynb
-│   ├── 04_validation_synthetic_and_expert.ipynb
-│   ├── 05_comparative_analysis.ipynb
+│   ├── 04_comparative_analysis.ipynb
+│   ├── 05_validation_synthetic.ipynb
 │   ├── 06_statistical_tests_effect_sizes.ipynb
 │   └── 07_manuscript_export.ipynb
 ├── Notebook-Guide/           # Framework guidelines and architectural standards
@@ -164,16 +164,17 @@ Revision_Repo/
 
 ```mermaid
 graph LR
-    NB1["01_data_and_eda"] -->|summary_NB1.json| NB2["02_baseline_models"]
-    NB2 -->|summary_NB2.json| NB3["03_parameter_sensitivity"]
-    NB2 -->|summary_NB2.json| NB5["05_comparative_analysis"]
-    NB5 -->|summary_NB5.json| NB4["04_validation_synthetic_and_expert"]
-    NB2 -->|summary_NB2.json| NB6["06_statistical_tests_effect_sizes"]
-    NB5 -->|summary_NB5.json| NB6
+    NB1["01_data_and_eda"] -->|summary_NB01.json| NB2["02_baseline_models"]
+    NB2 -->|summary_NB02.json| NB3["03_parameter_sensitivity"]
+    NB2 -->|summary_NB02.json| NB4["04_comparative_analysis"]
+    NB4 -->|summary_NB04.json| NB5["05_validation_synthetic"]
+    NB2 -->|summary_NB02.json| NB6["06_statistical_tests_effect_sizes"]
     NB3 --> NB7["07_manuscript_export"]
-    NB4 --> NB7
+    NB5 --> NB7
     NB6 --> NB7
 ```
+
+Notebooks were renumbered on 2026-09-21 so that dependency order, build order and numeric order coincide — run them 01 → 07 with no exceptions. See [`PLAN.md`](../PLAN.md).
 
 1. **`01_data_and_eda.ipynb` (Manuscript §2.1, Figs 1–2):**  
    Ingests raw claims, enforces feature schemas, validates data grain, and generates distribution curves and Pearson correlation heatmaps. Exports `data/processed/features_raw.parquet`.
@@ -181,10 +182,10 @@ graph LR
    Standardizes numeric features via `StandardScaler`. Fits baseline Isolation Forest ($\alpha = 0.05$) and LOF ($\text{auto}$ and $\alpha = 0.05$). Emits `data/processed/anomaly_labels.parquet`.
 3. **`03_parameter_sensitivity.ipynb` (Manuscript §3.1 revision, C2 response):**  
    Conducts parameter sweeps across contamination grids and estimator/neighborhood sizes. Produces stability matrices and pairwise Jaccard heatmaps.
-4. **`04_validation_synthetic_and_expert.ipynb` (Manuscript §2.4/§3.1 revision, C1 response):**  
-   Executes synthetic anomaly injection (extreme values, code swaps, frequency spikes) to calculate empirical Precision, Recall, and F1. Extracts top consensus cases from the 545-record IF $\cap$ LOF intersection for clinical face-validity profiling.
-5. **`05_comparative_analysis.ipynb` (Manuscript §3.2–§3.3, Table 2, Figs 6–7):**  
-   Computes intersection-over-union metrics (Jaccard Index), generates proportional Venn diagrams (`matplotlib-venn`), and renders cross-model confusion matrices.
+4. **`04_comparative_analysis.ipynb` (Manuscript §3.2–§3.3, Table 2, Figs 6–7, E1 response):**  
+   Computes intersection-over-union metrics (Jaccard Index), generates proportional Venn diagrams (`matplotlib-venn`), and renders cross-model confusion matrices. Adds the hypergeometric independence baseline so the Jaccard values are interpreted against a null rather than asserted as "low".
+5. **`05_validation_synthetic.ipynb` (Manuscript §2.4/§3.1 revision, C1 response):**  
+   Executes synthetic anomaly injection (extreme values, code swaps, frequency spikes) to calculate empirical Precision, Recall, and F1 against a known injected ground truth. Also profiles the 545-record IF $\cap$ LOF intersection descriptively — percentile position and values against the distribution. No clinical or expert judgment is claimed; expert validation remains future work.
 6. **`06_statistical_tests_effect_sizes.ipynb` (Manuscript §3.4, Tables 3–4 revision, C3 response):**  
    Executes Mann-Whitney $U$ non-parametric rank tests with Rank-Biserial Correlation ($r_{rb}$) and Chi-Square contingency tests with Cramér's $V$.
 7. **`07_manuscript_export.ipynb` (Manuscript camera-ready asset compilation):**  
@@ -242,8 +243,11 @@ pip install -r requirements.txt
 Place the uncompressed Kaggle dataset (`tamilsel/healthcare-providers-data`) in the raw data directory:
 
 ```bash
-data/raw/healthcare_providers_raw.csv
+data/raw/healthcare_providers.csv
 ```
+
+On Google Colab the canonical location is
+`/content/drive/MyDrive/BarekengPaper1-Revision/data/raw/healthcare_providers.csv`.
 
 Verify data integrity via SHA-256 (recorded in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)).
 
@@ -258,8 +262,8 @@ jupyter lab
 1. Run `notebooks/01_data_and_eda.ipynb` $\rightarrow$ verifies raw features and produces baseline figures.
 2. Run `notebooks/02_baseline_models.ipynb` $\rightarrow$ checks parity on Table 1 ($5,000 / 2,565 / 5,000$).
 3. Run `notebooks/03_parameter_sensitivity.ipynb` $\rightarrow$ executes stability grid.
-4. Run `notebooks/05_comparative_analysis.ipynb` $\rightarrow$ verifies Table 2 ($545$ overlap, $J = 0.058$).
-5. Run `notebooks/04_validation_synthetic_and_expert.ipynb` $\rightarrow$ evaluates synthetic injection on overlap.
+4. Run `notebooks/04_comparative_analysis.ipynb` $\rightarrow$ verifies Table 2 ($545$ overlap, $J = 0.058$).
+5. Run `notebooks/05_validation_synthetic.ipynb` $\rightarrow$ evaluates synthetic injection on overlap.
 6. Run `notebooks/06_statistical_tests_effect_sizes.ipynb` $\rightarrow$ verifies Tables 3–4 and outputs effect sizes.
 7. Run `notebooks/07_manuscript_export.ipynb` $\rightarrow$ generates all camera-ready manuscript assets.
 
@@ -287,7 +291,7 @@ If utilizing this codebase, replication methodology, or architectural standard, 
 
 ## Licensing & Contact
 
-* **Codebase License:** MIT License — see [`LICENSE`](LICENSE)
+* **Codebase License:** MIT License
 * **Dataset License:** Governed by Kaggle Database Open License (`tamilsel/healthcare-providers-data`)
 * **Principal Investigator:** Nyan Lynn Htet ([GitHub @nyan-dev](https://github.com/nyan-dev))  
 * **Institution:** INTI International University, Nilai, Negeri Sembilan, Malaysia

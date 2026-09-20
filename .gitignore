@@ -1,5 +1,12 @@
 
 
+# macOS on exFAT/FAT volumes: AppleDouble sidecars regenerate constantly.
+# One of these landing in .git/objects/pack/ corrupts git reads.
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+
 # Python
 __pycache__/
 *.pyc
@@ -12,3 +19,6 @@ __pycache__/
 # Environment
 .env
 .env.local
+# NOTE: data/ and outputs/ are deliberately NOT ignored. The Colab -> repo
+# round trip is how results reach review, so handshakes (summary_NB*.json),
+# tables, figures and the raw CSV are all tracked on purpose.
