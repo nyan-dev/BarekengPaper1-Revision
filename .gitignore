@@ -1,23 +1,4 @@
-# Data files
-*.csv
-*.xlsx
-*.xls
-*.json
-*.parquet
 
-# Large binary files
-*.zip
-*.tar.gz
-*.rar
-*.7z
-
-# Images
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.tiff
 
 # Python
 __pycache__/
@@ -27,9 +8,6 @@ __pycache__/
 
 # Jupyter
 *.ipynb_checkpoints/
-
-# Old repo
-Old-repo/
 
 # Environment
 .env
