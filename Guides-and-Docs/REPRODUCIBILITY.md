@@ -18,13 +18,21 @@ Pin exact versions in `requirements.txt`. Record them here as well for quick ref
 | Package | Version (original, if known) | Version (parity-verified 2026-09-21) |
 |---|---|---|
 | python | _unpinned in original_ | 3.9.13 local / **3.13.15 Colab** |
-| scikit-learn | _unpinned in original_ | 1.6.1 local / **Colab UNKNOWN — capture in NB02** |
+| scikit-learn | _unpinned in original_ | **1.6.1** (local and Colab) ✅ |
 | pandas | _unpinned in original_ | 2.3.3 local / **2.2.3 Colab** |
 | numpy | _unpinned in original_ | 2.0.2 local / **2.1.3 Colab** |
-| scipy | _unpinned in original_ | **1.13.1** (Tables 3–4 verified) |
+| scipy | _unpinned in original_ | 1.13.1 local / **1.16.3 Colab** |
 | matplotlib | _unpinned in original_ | 3.9.4 local / **3.10.0 Colab** |
 | seaborn | _unpinned in original_ | **0.13.2** (both) |
 | matplotlib-venn | _unpinned in original_ | _pending NB04_ |
+
+### 2.2 NB02 Colab run, 2026-09-20 — the scikit-learn question, answered
+
+**Colab resolves scikit-learn 1.6.1, the same version parity was verified in.** That was the one unobserved variable after NB01, and it is the one that governs Isolation Forest and LOF.
+
+NB02 on Colab reproduced **LOF(auto) = 2,565** exactly, alongside IF = 5,000 and LOF(0.05) = 5,000, while running numpy 2.1.3, pandas 2.2.3 and scipy 1.16.3 — every one of them different from the local verification host. The anchor is therefore insensitive to those three and turns on scikit-learn, which matched.
+
+Practical consequence: **`scikit-learn==1.6.1` is the pin that carries the parity guarantee.** numpy, pandas and scipy can drift without moving the Table 1 anchors — now demonstrated across two independent environments rather than inferred from one. Should a future Colab image ship a different scikit-learn, pin it explicitly before trusting any anchor.
 
 ### 2.1 NB01 Colab run, 2026-09-20
 
