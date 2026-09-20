@@ -7,7 +7,9 @@ This file is the single source of truth for anything that could cause computed r
 - **Source:** Kaggle — "Healthcare Providers Data For Anomaly Detection", `tamilsel/healthcare-providers-data`
 - **Records:** 100,000, 27 columns (7 numerical features used)
 - **Ground truth:** None. Dataset is explicitly unsupervised/unlabeled per its own Kaggle description. This is a disclosed limitation, not a gap to silently fix.
-- **Local copy checksum:** _[fill in SHA256 of the CSV once downloaded, so the exact data snapshot is verifiable]_
+- **Local copy checksum (SHA-256):** `3ab905111f47b32ab030ed5b106bbaf602961ed04d4a16ff615d2453911b9991`
+- **Size:** 23,362,829 bytes
+- Recorded 2026-09-21. NB01 Cell 03 recomputes this and **warns** on mismatch — a different snapshot invalidates every parity anchor in §5, since those were verified against this exact file.
 
 ## 2. Environment
 
@@ -20,19 +22,15 @@ Pin exact versions in `requirements.txt`. Record them here as well for quick ref
 | pandas | _unpinned in original_ | **2.3.3** |
 | numpy | _unpinned in original_ | **2.0.2** |
 | scipy | _unpinned in original_ | **1.13.1** (Tables 3–4 verified) |
-| matplotlib | _unpinned in original_ | _pending NB1_ |
-| seaborn | _unpinned in original_ | _pending NB1_ |
-| matplotlib-venn | _unpinned in original_ | _pending NB5_ |
+| matplotlib | _unpinned in original_ | 3.9.4 (local; Colab value pending NB01) |
+| seaborn | _unpinned in original_ | 0.13.2 (local; Colab value pending NB01) |
+| matplotlib-venn | _unpinned in original_ | _pending NB04_ |
 
 ⚠️ **The original repository pinned nothing** — the notebook installs no versions and states none. Full parity for the submitted numbers therefore rests on the combination above, which is the first environment in which they have been demonstrably reproduced.
 
+**Pinning procedure.** Pins are never guessed. The four packages above were pinned from the environment in which parity was demonstrated; the rest stay range-constrained until NB01/NB04/NB06 report what Colab actually resolves, at which point those observed values are written back as `==` pins.
+
 ⚠️ **`requirements.txt` constraints were wrong and have been corrected.** They specified `numpy<2.0.0` and `scikit-learn<1.6.0`, but parity was achieved on numpy **2.0.2** and scikit-learn **1.6.1** — both *excluded* by those bounds. Left as written, Colab would have been forced to downgrade away from the one combination known to reproduce the manuscript.
-
-> Action: extract original versions from the archived repo's `requirements.txt` before writing the new one. If the original repo has no pinned versions, note that explicitly here as a known original-submission limitation.
-
-**Pinning procedure (adopted 2026-09-21).** Exact pins are *not* guessed. NB1 Cell 02 records the resolved version of every package into `summary_NB1.json` under `environment`, and those observed values are then written into `requirements.txt` as `==` pins. Pinning to invented version numbers in a reproducibility file would be worse than leaving it open, so the file stays range-constrained until NB1's first Colab run reports reality.
-
-⚠️ **Live parity risk.** `scikit-learn>=1.1.0,<1.6.0` spans releases in which Isolation Forest's internals changed. Two Colab sessions months apart can resolve differently inside that range and move LOF(auto) and the overlap counts without any code change. Until the pin is exact, a parity failure cannot be distinguished from an environment drift. Closing this is a precondition for trusting the §5 gate.
 
 ## 3. Random Seeds
 
@@ -166,6 +164,8 @@ Checked on paper before any code runs — these confirm the targets are self-con
 - `2565 / (2565 + 5000 − 2565)` = 2565/5000 = **0.513** ✓ matches reported 0.513
 
 The third implies **LOF(auto) ⊂ LOF(0.05)** exactly — the intersection equals all of LOF(auto). Expected, since both rank on identical LOF scores and differ only in threshold. NB5 should assert this nesting explicitly; a violation means the two LOF runs did not see identical input.
+
+✅ **Figure 2 independently reproduces.** NB01's correlation matrix matches every coefficient in the submitted Figure 2 (0.66, 0.68, 0.98, 0.74, 0.99, 0.73, −0.02), confirming parity at the EDA stage as well as at Tables 1–4.
 
 ⚠️ **Figure 7 does not reconcile.** Its published cell counts (4672 / 328 / 94328 / 672) give IF = 5,000 ✓ but LOF = 1,000, matching neither 2,565 nor 5,000. Table 2 implies 545 / 4455 / 4455 / 90545 for IF vs LOF(0.05). Recompute at NB5; do not port the original figure.
 
